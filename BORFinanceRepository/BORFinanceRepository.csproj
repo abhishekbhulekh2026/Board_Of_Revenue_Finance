@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BORFinanceCommon\BORFinanceCommon.csproj" />
+    <ProjectReference Include="..\BORFinanceDatabase\BORFinanceDatabase.csproj" />
+    <ProjectReference Include="..\BORFinanceDomain\BORFinanceDomain.csproj" />
+    <ProjectReference Include="..\BORFinanceDTO\BORFinanceDTO.csproj" />
+  </ItemGroup>
+
+</Project>
