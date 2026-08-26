@@ -10,6 +10,9 @@ using System.Linq.Expressions;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using BORFinanceDomain.Loans;
+using BORFinanceDomain.Members;
+using BORFinanceDomain.FixedDeposits;
 
 namespace SchoolDatabase.Context
 {
@@ -31,6 +34,11 @@ namespace SchoolDatabase.Context
         public DbSet<Department> Departments => Set<Department>();
         public DbSet<Designation> Designations => Set<Designation>();
         public DbSet<Employee> Employees => Set<Employee>();
+
+        public DbSet<Membership> Memberships => Set<Membership>();
+        public DbSet<Loan> Loans => Set<Loan>();
+        public DbSet<LoanInstallment> LoanInstallments => Set<LoanInstallment>();
+        public DbSet<FixedDeposit> FixedDeposits => Set<FixedDeposit>();
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

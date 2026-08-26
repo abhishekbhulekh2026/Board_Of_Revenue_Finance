@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using BORFinanceDomain.Entities.Employees;
+using BORFinanceDomain.Entities.Security;
+using BORFinanceDomain.Loans;
+using BORFinanceDomain.Members;
+using BORFinanceDTO;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Logging;
-using BORFinanceDomain.Entities.Employees;
-using BORFinanceDomain.Entities.Security;
-using BORFinanceDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,8 +37,11 @@ namespace BORFinanceBusiness.Mappings
             CreateMap<UserRole, UserRoleDto>().ReverseMap();
             CreateMap<Permission, PermissionDto>().ReverseMap();
             CreateMap<RolePermission, RolePermissionDto>().ReverseMap();
+            CreateMap<Employee, EmployeeDto>().ReverseMap();
             CreateMap<Department, DepartmentDto>().ReverseMap();
             CreateMap<Designation, DesignationDto>().ReverseMap();
+            CreateMap<Membership, MembershipDto>().ReverseMap();
+            CreateMap<Loan, LoanDto>().ReverseMap();
         }
     }
 }

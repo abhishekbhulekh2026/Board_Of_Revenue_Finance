@@ -62,10 +62,19 @@ namespace SchoolDatabase.Configurations
                 .IsUnique();
 
             // User relationship
+            //builder.HasOne(x => x.User)
+            //    .WithMany()
+            //    .HasForeignKey(x => x.UserId)
+            //    .OnDelete(DeleteBehavior.SetNull);
+
+            // One User <-> One Employee
             builder.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
+                .WithOne(x => x.Employee)
+                .HasForeignKey<Employee>(x => x.UserId)
                 .OnDelete(DeleteBehavior.SetNull);
+
+
+
 
             // Department relationship
             builder.HasOne(x => x.Department)

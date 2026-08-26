@@ -60,10 +60,8 @@ namespace SchoolDatabase.Configurations
             builder.Property(x => x.CreatedDate)
                      .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-            //builder.HasOne(x => x.Role)
-            //       .WithMany(x => x.Users)
-            //       .HasForeignKey(x => x.RoleId)
-            //       .OnDelete(DeleteBehavior.Restrict);
+          
+
         }
     }
 }

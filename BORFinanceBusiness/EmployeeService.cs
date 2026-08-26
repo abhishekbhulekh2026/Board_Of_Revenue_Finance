@@ -86,12 +86,12 @@ namespace BORFinanceBusiness
             }
 
             // Department validation
-            if (!await _employeeRepository
-                .ExistsAsync(dto.DepartmentId))
-            {
-                throw new BusinessException(
-                    "Department not found.");
-            }
+            //if (!await _employeeRepository
+            //    .ExistsAsync(dto.DepartmentId))
+            //{
+            //    throw new BusinessException(
+            //        "Department not found.");
+            //}
 
             // Designation validation
             //if (!await _context.Designations
@@ -102,15 +102,15 @@ namespace BORFinanceBusiness
             //}
 
             // Optional User validation
-            if (dto.UserId.HasValue)
-            {
-                if (!await _employeeRepository
-                    .ExistsAsync(dto.UserId.Value))
-                {
-                    throw new BusinessException(
-                        "User not found.");
-                }
-            }
+            //if (dto.UserId.HasValue)
+            //{
+            //    if (!await _employeeRepository
+            //        .ExistsAsync(dto.UserId.Value))
+            //    {
+            //        throw new BusinessException(
+            //            "User not found.");
+            //    }
+            //}
 
             var employee =
                 _mapper.Map<Employee>(dto);

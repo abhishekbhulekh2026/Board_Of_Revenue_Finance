@@ -1,4 +1,5 @@
 using AutoMapper;
+using BORFinanceApi.Controllers;
 using BORFinanceApi.JWT;
 using BORFinanceApi.Middleware;
 using BORFinanceBusiness;
@@ -149,6 +150,12 @@ builder.Services.AddScoped<IRolePermissionRepository, RolePermissionRepository>(
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 builder.Services.AddScoped<IDesignationRepository, DesignationRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IMembershipRepository,MembershipRepository>();
+builder.Services.AddScoped<ILoanRepository,LoanRepository>();
+
+
+
+
 builder.Services.AddScoped<IStoredProcedureRepository, StoredProcedureRepository>();
 
 // Business Services
@@ -161,7 +168,8 @@ builder.Services.AddScoped<IRolePermissionService, RolePermissionService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 builder.Services.AddScoped<IDesignationService, DesignationService>();
-
+builder.Services.AddScoped<IMembershipService, MembershipService>();
+builder.Services.AddScoped<ILoanService, LoanService>();
 
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();

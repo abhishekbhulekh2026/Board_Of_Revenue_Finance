@@ -229,3 +229,497 @@ System.InvalidOperationException: Unable to resolve service for type 'BORFinance
 [2026-08-25 17:48:47 WRN] Microsoft.EntityFrameworkCore.Model.Validation The foreign key property 'Employee.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
 [2026-08-25 17:48:49 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/Employee/details/1 responded 404 in 3366.5787 ms
 [2026-08-25 17:48:53 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/Employee/details/2 responded 404 in 571.7847 ms
+[2026-08-25 18:40:26 INF]  BORFinance ERP API Started Successfully
+[2026-08-25 18:40:26 WRN] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware The WebRootPath was not found: E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\wwwroot. Static files may be unavailable.
+[2026-08-25 18:40:52 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 18:40:52 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserRole'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 18:40:52 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserSession'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 18:40:52 WRN] Microsoft.EntityFrameworkCore.Model.Validation The foreign key property 'Employee.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2026-08-25 18:40:53 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-08-25 18:40:54 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/Permission/GetPermissionTypeList responded 200 in 4474.1206 ms
+[2026-08-25 18:41:19 WRN] BORFinanceBusiness.AuthService Login failed for username: Admin. User not found.
+[2026-08-25 18:41:19 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Auth/Login, TraceId: 0HNO2L8TE9JAJ:00000003
+BORFinanceCommon.Exceptions.BusinessException: Invalid username or password.
+   at BORFinanceBusiness.AuthService.LoginAsync(LoginRequest request) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceBusiness\AuthService.cs:line 59
+   at BORFinanceApi.Controllers.AuthController.Login(LoginRequest request) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\AuthController.cs:line 25
+   at lambda_method66(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 18:41:19 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Auth/Login responded 400 in 1614.8151 ms
+[2026-08-25 18:41:25 WRN] BORFinanceBusiness.AuthService Login failed for username: admin. User not found.
+[2026-08-25 18:41:25 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Auth/Login, TraceId: 0HNO2L8TE9JAJ:00000005
+BORFinanceCommon.Exceptions.BusinessException: Invalid username or password.
+   at BORFinanceBusiness.AuthService.LoginAsync(LoginRequest request) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceBusiness\AuthService.cs:line 59
+   at BORFinanceApi.Controllers.AuthController.Login(LoginRequest request) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\AuthController.cs:line 25
+   at lambda_method66(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 18:41:25 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Auth/Login responded 400 in 1158.3242 ms
+[2026-08-25 18:41:43 WRN] BORFinanceBusiness.AuthService Invalid password for username: Abhishek. Failed attempts: 1
+[2026-08-25 18:41:43 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Auth/Login, TraceId: 0HNO2L8TE9JAJ:00000007
+BORFinanceCommon.Exceptions.BusinessException: Invalid password for username: Abhishek. Failed attempts: 1
+   at BORFinanceBusiness.AuthService.LoginAsync(LoginRequest request) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceBusiness\AuthService.cs:line 125
+   at BORFinanceApi.Controllers.AuthController.Login(LoginRequest request) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\AuthController.cs:line 25
+   at lambda_method66(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 18:41:43 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Auth/Login responded 400 in 2239.5233 ms
+[2026-08-25 18:41:57 INF] BORFinanceBusiness.AuthService User logged in successfully: Abhishek
+[2026-08-25 18:41:57 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Auth/Login responded 200 in 2228.7137 ms
+[2026-08-25 18:45:03 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/User/GetAllUsers responded 401 in 84.0279 ms
+[2026-08-25 18:45:15 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/User/GetAllUsers responded 401 in 3.2868 ms
+[2026-08-25 18:53:15 INF]  BORFinance ERP API Started Successfully
+[2026-08-25 18:53:15 WRN] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware The WebRootPath was not found: E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\wwwroot. Static files may be unavailable.
+[2026-08-25 18:53:30 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 18:53:31 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserRole'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 18:53:31 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserSession'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 18:53:31 WRN] Microsoft.EntityFrameworkCore.Model.Validation The foreign key property 'Employee.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2026-08-25 18:53:34 INF] BORFinanceBusiness.AuthService User logged in successfully: Abhishek
+[2026-08-25 18:53:34 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Auth/Login responded 200 in 6058.6622 ms
+[2026-08-25 18:53:50 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/User/GetAllUsers responded 401 in 58.2885 ms
+[2026-08-25 18:54:35 INF]  BORFinance ERP API Started Successfully
+[2026-08-25 18:54:35 WRN] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware The WebRootPath was not found: E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\wwwroot. Static files may be unavailable.
+[2026-08-25 18:54:49 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 18:54:49 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserRole'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 18:54:49 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserSession'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 18:54:49 WRN] Microsoft.EntityFrameworkCore.Model.Validation The foreign key property 'Employee.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2026-08-25 18:54:53 INF] BORFinanceBusiness.AuthService User logged in successfully: Abhishek
+[2026-08-25 18:54:53 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Auth/Login responded 200 in 4675.5818 ms
+[2026-08-25 18:55:08 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/User/GetAllUsers responded 401 in 68.9923 ms
+[2026-08-25 18:57:24 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-08-25 18:57:25 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/User/GetAllUsers responded 200 in 997.0737 ms
+[2026-08-25 18:57:46 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/User/GetAllUsers responded 401 in 5.1839 ms
+[2026-08-25 23:17:15 INF]  BORFinance ERP API Started Successfully
+[2026-08-25 23:17:16 WRN] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware The WebRootPath was not found: E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\wwwroot. Static files may be unavailable.
+[2026-08-25 23:17:47 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:17:47 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserRole'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:17:47 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserSession'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:17:47 WRN] Microsoft.EntityFrameworkCore.Model.Validation The foreign key property 'Employee.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2026-08-25 23:17:47 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-08-25 23:17:49 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/Department/GetDepartmentList responded 200 in 4388.4596 ms
+[2026-08-25 23:18:59 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Designation/AddDesignation responded 200 in 844.2998 ms
+[2026-08-25 23:25:55 ERR] Microsoft.EntityFrameworkCore.Update An exception occurred in the database while saving changes for context type 'SchoolDatabase.Context.BORFinanceDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry 'DS-0001' for key 'IX_Designations_DesignationCode'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ScanRowAsync(IOBehavior ioBehavior, Row row, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 207
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry 'DS-0001' for key 'IX_Designations_DesignationCode'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ScanRowAsync(IOBehavior ioBehavior, Row row, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 207
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-08-25 23:25:55 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Designation/AddDesignation, TraceId: 0HNO2Q3JKNJ82:00000005
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Duplicate entry 'DS-0001' for key 'IX_Designations_DesignationCode'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ScanRowAsync(IOBehavior ioBehavior, Row row, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 244
+   at MySqlConnector.Core.ResultSet.ReadAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ResultSet.cs:line 207
+   at MySqlConnector.MySqlDataReader.ReadAsync(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 38
+   at Pomelo.EntityFrameworkCore.MySql.Update.Internal.MySqlModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at BORFinanceBusiness.DesignationService.AddDesignation(DesignationDto designationDto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceBusiness\DesignationService.cs:line 54
+   at BORFinanceApi.Controllers.DesignationController.AddDesignation(DesignationDto request) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\DesignationController.cs:line 30
+   at lambda_method80(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 23:25:55 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Designation/AddDesignation responded 500 in 49581.0442 ms
+[2026-08-25 23:26:08 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/Designation/GetDesignationList responded 200 in 645.0499 ms
+[2026-08-25 23:35:46 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Employee/AddEmployee, TraceId: 0HNO2Q3JKNJ82:00000009
+BORFinanceCommon.Exceptions.BusinessException: User is not authenticated.
+   at BORFinanceBusiness.EmployeeService.CreateAsync(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceBusiness\EmployeeService.cs:line 72
+   at EmployeeController.AddEmployee(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\EmployeeController.cs:line 87
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 23:35:46 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Employee/AddEmployee responded 400 in 101.5654 ms
+[2026-08-25 23:37:14 INF] BORFinanceBusiness.AuthService User logged in successfully: Abhishek
+[2026-08-25 23:37:14 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Auth/Login responded 200 in 3573.0925 ms
+[2026-08-25 23:38:16 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Employee/AddEmployee, TraceId: 0HNO2Q3JKNJ82:0000000D
+BORFinanceCommon.Exceptions.BusinessException: Department not found.
+   at BORFinanceBusiness.EmployeeService.CreateAsync(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceBusiness\EmployeeService.cs:line 92
+   at EmployeeController.AddEmployee(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\EmployeeController.cs:line 87
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 23:38:16 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Employee/AddEmployee responded 400 in 1323.8478 ms
+[2026-08-25 23:42:06 INF]  BORFinance ERP API Started Successfully
+[2026-08-25 23:42:06 WRN] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware The WebRootPath was not found: E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\wwwroot. Static files may be unavailable.
+[2026-08-25 23:42:53 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:42:53 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserRole'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:42:53 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserSession'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:42:53 WRN] Microsoft.EntityFrameworkCore.Model.Validation The foreign key property 'Employee.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2026-08-25 23:42:57 INF] BORFinanceBusiness.AuthService User logged in successfully: Abhishek
+[2026-08-25 23:42:57 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Auth/Login responded 200 in 4711.9977 ms
+[2026-08-25 23:47:22 INF]  BORFinance ERP API Started Successfully
+[2026-08-25 23:47:22 WRN] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware The WebRootPath was not found: E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\wwwroot. Static files may be unavailable.
+[2026-08-25 23:49:45 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-08-25 23:49:46 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:49:46 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserRole'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:49:46 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserSession'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:49:46 WRN] Microsoft.EntityFrameworkCore.Model.Validation The foreign key property 'Employee.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2026-08-25 23:49:46 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Employee/AddEmployee, TraceId: 0HNO2QKE2T2UG:00000013
+BORFinanceCommon.Exceptions.BusinessException: User is not authenticated.
+   at BORFinanceBusiness.EmployeeService.CreateAsync(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceBusiness\EmployeeService.cs:line 72
+   at EmployeeController.AddEmployee(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\EmployeeController.cs:line 87
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 23:49:46 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Employee/AddEmployee responded 400 in 2784.4740 ms
+[2026-08-25 23:50:24 WRN] BORFinanceBusiness.AuthService Invalid password for username: Abhishek. Failed attempts: 1
+[2026-08-25 23:50:25 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Auth/Login, TraceId: 0HNO2QKE2T2UG:00000015
+BORFinanceCommon.Exceptions.BusinessException: Invalid password for username: Abhishek. Failed attempts: 1
+   at BORFinanceBusiness.AuthService.LoginAsync(LoginRequest request) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceBusiness\AuthService.cs:line 125
+   at BORFinanceApi.Controllers.AuthController.Login(LoginRequest request) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\AuthController.cs:line 25
+   at lambda_method14(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 23:50:25 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Auth/Login responded 400 in 3735.4292 ms
+[2026-08-25 23:50:34 INF] BORFinanceBusiness.AuthService User logged in successfully: Abhishek
+[2026-08-25 23:50:34 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Auth/Login responded 200 in 2079.3158 ms
+[2026-08-25 23:51:16 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Employee/AddEmployee, TraceId: 0HNO2QKE2T2UG:00000019
+BORFinanceCommon.Exceptions.BusinessException: User not found.
+   at BORFinanceBusiness.EmployeeService.CreateAsync(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceBusiness\EmployeeService.cs:line 110
+   at EmployeeController.AddEmployee(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\EmployeeController.cs:line 87
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 23:51:16 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Employee/AddEmployee responded 400 in 1193.7644 ms
+[2026-08-25 23:52:49 INF]  BORFinance ERP API Started Successfully
+[2026-08-25 23:52:49 WRN] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware The WebRootPath was not found: E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\wwwroot. Static files may be unavailable.
+[2026-08-25 23:53:21 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-08-25 23:53:22 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:53:22 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserRole'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:53:22 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserSession'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:53:22 WRN] Microsoft.EntityFrameworkCore.Model.Validation The foreign key property 'Employee.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2026-08-25 23:53:24 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Employee/AddEmployee, TraceId: 0HNO2QNFBDHP1:00000009
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+EmployeeDto -> Employee
+BORFinanceDTO.EmployeeDto -> BORFinanceDomain.Entities.Employees.Employee
+   at lambda_method13(Closure, Object, Employee, ResolutionContext)
+   at BORFinanceBusiness.EmployeeService.CreateAsync(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceBusiness\EmployeeService.cs:line 115
+   at EmployeeController.AddEmployee(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\EmployeeController.cs:line 87
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 23:53:24 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Employee/AddEmployee responded 500 in 3037.4854 ms
+[2026-08-25 23:54:23 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Employee/AddEmployee, TraceId: 0HNO2QNFBDHP1:0000000B
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+EmployeeDto -> Employee
+BORFinanceDTO.EmployeeDto -> BORFinanceDomain.Entities.Employees.Employee
+   at lambda_method13(Closure, Object, Employee, ResolutionContext)
+   at BORFinanceBusiness.EmployeeService.CreateAsync(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceBusiness\EmployeeService.cs:line 115
+   at EmployeeController.AddEmployee(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\EmployeeController.cs:line 87
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 23:54:23 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Employee/AddEmployee responded 500 in 631.5585 ms
+[2026-08-25 23:56:49 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Employee/AddEmployee, TraceId: 0HNO2QNFBDHP1:0000000D
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+EmployeeDto -> Employee
+BORFinanceDTO.EmployeeDto -> BORFinanceDomain.Entities.Employees.Employee
+   at lambda_method13(Closure, Object, Employee, ResolutionContext)
+   at BORFinanceBusiness.EmployeeService.CreateAsync(EmployeeDto dto)
+   at EmployeeController.AddEmployee(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\EmployeeController.cs:line 87
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 23:56:50 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Employee/AddEmployee responded 500 in 115996.0362 ms
+[2026-08-25 23:57:11 WRN] BORFinanceBusiness.AuthService Login failed for username: Abhishek Gupta. User not found.
+[2026-08-25 23:57:11 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Auth/Login, TraceId: 0HNO2QNFBDHP1:00000017
+BORFinanceCommon.Exceptions.BusinessException: Invalid username or password.
+   at BORFinanceBusiness.AuthService.LoginAsync(LoginRequest request)
+   at BORFinanceApi.Controllers.AuthController.Login(LoginRequest request) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\AuthController.cs:line 25
+   at lambda_method17(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 23:57:11 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Auth/Login responded 400 in 1484.7557 ms
+[2026-08-25 23:57:27 INF] BORFinanceBusiness.AuthService User logged in successfully: Abhishek
+[2026-08-25 23:57:27 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Auth/Login responded 200 in 2311.4928 ms
+[2026-08-25 23:58:02 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Employee/AddEmployee, TraceId: 0HNO2QNFBDHP1:0000001B
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+EmployeeDto -> Employee
+BORFinanceDTO.EmployeeDto -> BORFinanceDomain.Entities.Employees.Employee
+   at lambda_method13(Closure, Object, Employee, ResolutionContext)
+   at BORFinanceBusiness.EmployeeService.CreateAsync(EmployeeDto dto)
+   at EmployeeController.AddEmployee(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\EmployeeController.cs:line 87
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 23:58:02 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Employee/AddEmployee responded 500 in 3901.0264 ms
+[2026-08-25 23:58:41 INF]  BORFinance ERP API Started Successfully
+[2026-08-25 23:58:41 WRN] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware The WebRootPath was not found: E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\wwwroot. Static files may be unavailable.
+[2026-08-25 23:59:06 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-08-25 23:59:07 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'RefreshToken'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:59:07 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserRole'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:59:07 WRN] Microsoft.EntityFrameworkCore.Model.Validation Entity 'User' has a global query filter defined and is the required end of a relationship with the entity 'UserSession'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+[2026-08-25 23:59:07 WRN] Microsoft.EntityFrameworkCore.Model.Validation The foreign key property 'Employee.UserId1' was created in shadow state because a conflicting property with the simple name 'UserId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+[2026-08-25 23:59:15 INF] BORFinanceBusiness.EmployeeService Employee created: EMP0001 by User 2
+[2026-08-25 23:59:18 ERR] Microsoft.EntityFrameworkCore.Database.Command Failed executing DbCommand (311ms) [Parameters=[@p0='?' (Size = 500), @p1='?' (DbType = Decimal), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int64), @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Size = 200), @p9='?' (Size = 50), @p10='?' (Size = 50), @p11='?' (Size = 200), @p12='?' (Size = 200), @p13='?' (Size = 300), @p14='?' (Size = 20), @p15='?' (DbType = DateTime), @p16='?' (DbType = Int64), @p17='?' (DbType = Int64), @p18='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `Employees` (`Address`, `BasicSalary`, `CreatedAt`, `CreatedBy`, `DateOfBirth`, `DateOfJoining`, `DepartmentId`, `DesignationId`, `Email`, `EmployeeCode`, `EmployeeStatus`, `FatherName`, `FullName`, `FullNameHi`, `MobileNumber`, `UpdatedAt`, `UpdatedBy`, `UserId`, `UserId1`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18)
+RETURNING `EmployeeId`, `IsActive`;
+[2026-08-25 23:59:18 ERR] Microsoft.EntityFrameworkCore.Update An exception occurred in the database while saving changes for context type 'SchoolDatabase.Context.BORFinanceDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'UserId1' in 'INSERT INTO'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'UserId1' in 'INSERT INTO'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[2026-08-25 23:59:18 ERR] BORFinanceApi.Middleware.GlobalExceptionMiddleware Exception occurred. Method: POST, Path: /api/Employee/AddEmployee, TraceId: 0HNO2QQOCPP16:00000009
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'UserId1' in 'INSERT INTO'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at BORFinanceBusiness.EmployeeService.CreateAsync(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceBusiness\EmployeeService.cs:line 134
+   at EmployeeController.AddEmployee(EmployeeDto dto) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Controllers\EmployeeController.cs:line 87
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at BORFinanceApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\Middleware\GlobalExceptionMiddleware.cs:line 28
+[2026-08-25 23:59:18 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Employee/AddEmployee responded 500 in 13525.1128 ms

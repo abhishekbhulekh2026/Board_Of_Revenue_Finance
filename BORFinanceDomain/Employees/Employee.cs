@@ -1,4 +1,5 @@
 ﻿using BORFinanceDomain.Entities.Security;
+using BORFinanceDomain.Members;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,8 +58,8 @@ namespace BORFinanceDomain.Entities.Employees
 
         public virtual User? User { get; set; }
 
-      
+        public virtual Membership? Membership { get; set; }
 
-     
+
     }
 }

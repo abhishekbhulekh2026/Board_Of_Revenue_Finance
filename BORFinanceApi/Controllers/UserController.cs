@@ -1,18 +1,20 @@
 ﻿using AutoMapper;
+using BORFinanceBusiness;
+using BORFinanceCommon.Models;
+using BORFinanceDomain.Entities.Security;
+using BORFinanceDTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using BORFinanceBusiness;
-using BORFinanceDomain.Entities.Security;
-using BORFinanceDTO;
+using System.Data;
 
 namespace BORFinanceApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
 
-    [Authorize(Roles = "ADMIN")]
+    //[Authorize(Roles = "ADMIN")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -30,7 +32,15 @@ namespace BORFinanceApi.Controllers
         {
             var users = await _userService.GetAllAsync();
 
-            return Ok(users);
+            if (users == null)
+                return NotFound("No users found.");
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = users
+            });
         }
 
        
@@ -42,7 +52,12 @@ namespace BORFinanceApi.Controllers
             if (user == null)
                 return NotFound("User not found.");
 
-            return Ok(user);
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = user
+            });
         }
 
        
@@ -62,7 +77,13 @@ namespace BORFinanceApi.Controllers
             if (!result)
                 return BadRequest("Username already exists.");
 
-            return Ok("User created successfully.");
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "User created successfully.",
+                Data = result
+            });
+
         }
 
       
@@ -84,7 +105,14 @@ namespace BORFinanceApi.Controllers
             if (!result)
                 return BadRequest("Unable to update user.");
 
-            return Ok("User updated successfully.");
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "User updated successfully.",
+                Data = result
+            });
+           
         }
 
      
@@ -96,7 +124,13 @@ namespace BORFinanceApi.Controllers
             if (!result)
                 return NotFound("User not found.");
 
-            return Ok("User deleted successfully.");
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "User deleted successfully.",
+                Data = result
+            });
+            
         }
     }
 }

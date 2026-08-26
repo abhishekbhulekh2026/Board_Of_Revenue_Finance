@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using BORFinanceBusiness;
+﻿using BORFinanceBusiness;
+using BORFinanceCommon.Models;
 using BORFinanceDomain.Entities.Employees;
+using BORFinanceDomain.Entities.Security;
 using BORFinanceDTO;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BORFinanceApi.Controllers
 {
@@ -19,14 +22,30 @@ namespace BORFinanceApi.Controllers
         public async Task<IActionResult> GetDepartmentList()
         {
             var items = await _departmentService.GetItemDtosAsync();
-            return Ok(items);
+
+            if(items==null)
+                return NotFound("No department found.");
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = items
+            });
         }
 
         [HttpPost("AddDepartment")]
         public async Task<IActionResult> AddDepartment([FromBody] DepartmentDto departmentDto)
         {
-            await _departmentService.AddDepartmentAsync(departmentDto);
-            return Ok();
+            var result  = await _departmentService.AddDepartmentAsync(departmentDto);
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "Department created successfully.!",
+                Data = result
+            });
+           
         }
     }
 }

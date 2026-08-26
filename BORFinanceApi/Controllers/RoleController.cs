@@ -3,6 +3,7 @@ using BORFinanceCommon.Models;
 using BORFinanceDTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace BORFinanceApi.Controllers
 {
@@ -30,7 +31,8 @@ namespace BORFinanceApi.Controllers
             {
                 Success = true,
                 Message = "success.",
-                Data = role
+                Data = role,
+                StatusCode = (int)HttpStatusCode.OK
             });
         }
 

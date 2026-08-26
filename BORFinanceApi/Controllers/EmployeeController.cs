@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using BORFinanceBusiness;
+﻿using BORFinanceBusiness;
+using BORFinanceCommon.Models;
+using BORFinanceDomain.Entities.Security;
 using BORFinanceDTO;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -19,10 +21,17 @@ public class EmployeeController : ControllerBase
     [HttpGet("GetEmployeeList")]
     public async Task<IActionResult> GetEmployeeList()
     {
-        var result =
-            await _employeeService.GetAllAsync();
+        var result = await _employeeService.GetAllAsync();
 
-        return Ok(result);
+        if(result == null)
+            return NotFound("No employees found.");
+
+        return Ok(new ApiResponse<object>
+        {
+            Success = true,
+            Message = "success.",
+            Data = result
+        });
     }
 
    
@@ -32,7 +41,15 @@ public class EmployeeController : ControllerBase
         var result =
             await _employeeService.GetActiveAsync();
 
-        return Ok(result);
+        if (result == null)
+            return NotFound("No employees found.");
+
+        return Ok(new ApiResponse<object>
+        {
+            Success = true,
+            Message = "success.",
+            Data = result
+        });
     }
 
     [HttpGet("GetEmployeeById")]
@@ -44,10 +61,14 @@ public class EmployeeController : ControllerBase
                 .GetByIdAsync(id);
 
         if (result == null)
-            return NotFound(
-                "Employee not found.");
+            return NotFound("Employee not found.");
 
-        return Ok(result);
+        return Ok(new ApiResponse<object>
+        {
+            Success = true,
+            Message = "success.",
+            Data = result
+        });
     }
 
     //[HttpGet("details/{id:long}")]
@@ -92,8 +113,14 @@ public class EmployeeController : ControllerBase
             return BadRequest(
                 "Unable to create employee.");
 
-        return Ok(
-            "Employee created successfully.");
+
+        return Ok(new ApiResponse<object>
+        {
+            Success = true,
+            Message = "Employee created successfully.",
+            Data = result
+        });
+      
     }
 
     
@@ -117,8 +144,13 @@ public class EmployeeController : ControllerBase
             return BadRequest(
                 "Unable to update employee.");
 
-        return Ok(
-            "Employee updated successfully.");
+        return Ok(new ApiResponse<object>
+        {
+            Success = true,
+            Message = "Employee updated successfully.",
+            Data = result
+        });
+
     }
 
     [HttpDelete("DeleteEmployee")]
@@ -133,7 +165,12 @@ public class EmployeeController : ControllerBase
             return BadRequest(
                 "Unable to delete employee.");
 
-        return Ok(
-            "Employee deleted successfully.");
+        return Ok(new ApiResponse<object>
+        {
+            Success = true,
+            Message = "Employee deleted successfully.",
+            Data = result
+        });
+       
     }
 }
