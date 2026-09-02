@@ -744,3 +744,5 @@ BORFinanceCommon.Exceptions.BusinessException: User is not authenticated.
 [2026-08-26 16:02:31 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
 [2026-08-26 16:02:35 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/Loan responded 200 in 7171.1841 ms
 [2026-08-26 16:02:50 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/Loan responded 200 in 9010.2672 ms
+[2026-08-26 21:07:24 INF]  BORFinance ERP API Started Successfully
+[2026-08-26 21:07:25 WRN] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware The WebRootPath was not found: E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\wwwroot. Static files may be unavailable.

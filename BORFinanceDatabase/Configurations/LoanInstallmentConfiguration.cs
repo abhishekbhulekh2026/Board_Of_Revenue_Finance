@@ -32,8 +32,17 @@ namespace BORFinanceDatabase.Configurations
                    .HasDefaultValue(0);
 
             builder.Property(x => x.Status)
-                   .HasMaxLength(30)
-                   .HasDefaultValue("Pending");
+        .HasMaxLength(50)
+        .HasDefaultValue("Pending");
+
+            builder.Property(x => x.PaymentMode)
+                   .HasMaxLength(30);
+
+            builder.Property(x => x.ChequeNumber)
+                   .HasMaxLength(100);
+
+            builder.Property(x => x.ChequeDate);
+
 
             builder.HasIndex(x => new
             {

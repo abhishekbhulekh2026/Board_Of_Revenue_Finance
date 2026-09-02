@@ -37,6 +37,9 @@ namespace SchoolDatabase.Context
 
         public DbSet<Membership> Memberships => Set<Membership>();
         public DbSet<Loan> Loans => Set<Loan>();
+
+        public DbSet<LoanType> LoanTypes => Set<LoanType>();
+        public DbSet<LoanGuarantor> LoanGuarantors => Set<LoanGuarantor>();
         public DbSet<LoanInstallment> LoanInstallments => Set<LoanInstallment>();
         public DbSet<FixedDeposit> FixedDeposits => Set<FixedDeposit>();
 

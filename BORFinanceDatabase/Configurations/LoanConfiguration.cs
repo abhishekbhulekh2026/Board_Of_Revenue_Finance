@@ -25,10 +25,6 @@ namespace BORFinanceDatabase.Configurations
             builder.HasIndex(x => x.LoanNumber)
                    .IsUnique();
 
-            builder.Property(x => x.LoanType)
-                   .HasMaxLength(50)
-                   .IsRequired();
-
             builder.Property(x => x.RequestedAmount)
                    .HasPrecision(18, 2);
 
@@ -36,38 +32,47 @@ namespace BORFinanceDatabase.Configurations
                    .HasPrecision(18, 2);
 
             builder.Property(x => x.InterestRate)
-                   .HasPrecision(8, 4);
+                   .HasPrecision(5, 2);
+
+            builder.Property(x => x.PaidAmount)
+                   .HasPrecision(18, 2);
 
             builder.Property(x => x.Status)
-                   .HasMaxLength(30)
+                   .HasMaxLength(50)
                    .HasDefaultValue("Pending");
 
-            builder.Property(x => x.Purpose)
-                   .HasMaxLength(500);
+            builder.Property(x => x.PaymentStatus)
+                   .HasMaxLength(50);
 
-            builder.Property(x => x.Remarks)
-                   .HasMaxLength(1000);
+            builder.Property(x => x.PaymentReference)
+                   .HasMaxLength(100);
 
-            builder.Property(x => x.ApplicationDate)
-                   .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            builder.Property(x => x.BankTransactionReference)
+                   .HasMaxLength(150);
 
-            builder.Property(x => x.CreatedAt)
-                   .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-            builder.HasIndex(x => x.MembershipId);
-
-            builder.HasIndex(x => x.Status);
-
-           
+            // Loan → Membership
             builder.HasOne(x => x.Membership)
-    .WithMany(x => x.Loans)
-    .HasForeignKey(x => x.MembershipId)
-    .OnDelete(DeleteBehavior.Restrict);
+                   .WithMany(x => x.Loans)
+                   .HasForeignKey(x => x.MembershipId)
+                   .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasIndex(x => x.LoanNumber)
-                .IsUnique();
+            // Loan → LoanType
+            builder.HasOne(x => x.LoanType)
+                   .WithMany(x => x.Loans)
+                   .HasForeignKey(x => x.LoanTypeId)
+                   .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasIndex(x => x.MembershipId);
+            // Loan → LoanInstallment
+            builder.HasMany(x => x.Installments)
+                   .WithOne(x => x.Loan)
+                   .HasForeignKey(x => x.LoanId)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            // Loan → LoanGuarantor
+            builder.HasMany(x => x.Guarantors)
+                   .WithOne(x => x.Loan)
+                   .HasForeignKey(x => x.LoanId)
+                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

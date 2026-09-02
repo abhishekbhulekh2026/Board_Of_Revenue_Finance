@@ -152,9 +152,9 @@ builder.Services.AddScoped<IDesignationRepository, DesignationRepository>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IMembershipRepository,MembershipRepository>();
 builder.Services.AddScoped<ILoanRepository,LoanRepository>();
-
-
-
+builder.Services.AddScoped<ILoanInstallmentRepository,LoanInstallmentRepository>();
+builder.Services.AddScoped<ILoanTypeRepository, LoanTypeRepository>();
+builder.Services.AddScoped<ILoanGuarantorRepository,LoanGuarantorRepository>();
 
 builder.Services.AddScoped<IStoredProcedureRepository, StoredProcedureRepository>();
 
@@ -170,6 +170,9 @@ builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 builder.Services.AddScoped<IDesignationService, DesignationService>();
 builder.Services.AddScoped<IMembershipService, MembershipService>();
 builder.Services.AddScoped<ILoanService, LoanService>();
+builder.Services.AddScoped<ILoanInstallmentService, LoanInstallmentService>();
+builder.Services.AddScoped<ILoanTypeService, LoanTypeService>();
+builder.Services.AddScoped<ILoanGuarantorService, LoanGuarantorService>();
 
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();

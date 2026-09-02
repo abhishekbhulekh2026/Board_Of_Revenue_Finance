@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BORFinanceBusiness;
+using BORFinanceCommon.Models;
+using BORFinanceDomain.Entities.Security;
+using BORFinanceDTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using BORFinanceBusiness;
-using BORFinanceDTO;
+using System.Net;
 
 namespace BORFinanceApi.Controllers
 {
@@ -31,7 +34,14 @@ namespace BORFinanceApi.Controllers
             if (result == null)
                 return NotFound(
                     "Role permission not found.");
-            return Ok(result);
+
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = result,
+            });
         }
 
         [HttpGet("GetPermissionByRoleId")]
@@ -41,7 +51,17 @@ namespace BORFinanceApi.Controllers
             var result = await _service
                 .GetByRoleIdAsync(roleId);
 
-            return Ok(result);
+            if (result == null)
+                return NotFound(
+                    "Role permission not found.");
+
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = result,
+            });
         }
 
         [HttpGet("GetPermissionById")]
@@ -51,7 +71,17 @@ namespace BORFinanceApi.Controllers
             var result = await _service
                 .GetByPermissionIdAsync(permissionId);
 
-            return Ok(result);
+            if (result == null)
+                return NotFound(
+                    "Role permission not found.");
+
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = result,
+            });
         }
 
         [HttpPost("AddPermissions")]
@@ -68,8 +98,13 @@ namespace BORFinanceApi.Controllers
                 return BadRequest(
                     "Unable to assign permission to role.");
 
-            return Ok(
-                "Permission assigned to role successfully.");
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "Permission assigned to role successfully.",
+                Data = result,
+            });
+           
         }
 
         
@@ -96,8 +131,14 @@ namespace BORFinanceApi.Controllers
                 return BadRequest(
                     "Unable to update role permission.");
 
-            return Ok(
-                "Role permission updated successfully.");
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "Role permission updated successfully.",
+                Data = result,
+            });
+
         }
 
       
@@ -113,8 +154,13 @@ namespace BORFinanceApi.Controllers
                 return BadRequest(
                     "Unable to remove role permission.");
 
-            return Ok(
-                "Role permission removed successfully.");
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "Role permission removed successfully.",
+                Data = result,
+            });
+           
         }
     }
 }

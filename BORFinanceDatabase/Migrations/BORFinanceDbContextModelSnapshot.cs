@@ -773,9 +773,7 @@ namespace BORFinanceDatabase.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("LoanId"));
 
                     b.Property<DateTime>("ApplicationDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("ApprovalDate")
                         .HasColumnType("datetime(6)");
@@ -787,10 +785,12 @@ namespace BORFinanceDatabase.Migrations
                     b.Property<long?>("ApprovedBy")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("BankTransactionReference")
+                        .HasMaxLength(150)
+                        .HasColumnType("varchar(150)");
+
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime(6)")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long?>("CreatedBy")
                         .HasColumnType("bigint");
@@ -799,29 +799,37 @@ namespace BORFinanceDatabase.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<decimal>("InterestRate")
-                        .HasPrecision(8, 4)
-                        .HasColumnType("decimal(8,4)");
+                        .HasPrecision(5, 2)
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<string>("LoanNumber")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("LoanType")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                    b.Property<int>("LoanTypeId")
+                        .HasColumnType("int");
 
                     b.Property<long>("MembershipId")
                         .HasColumnType("bigint");
 
+                    b.Property<decimal?>("PaidAmount")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("PaymentReference")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("PaymentStatus")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
                     b.Property<string>("Purpose")
-                        .HasMaxLength(500)
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Remarks")
-                        .HasMaxLength(1000)
-                        .HasColumnType("varchar(1000)");
+                        .HasColumnType("longtext");
 
                     b.Property<decimal>("RequestedAmount")
                         .HasPrecision(18, 2)
@@ -830,8 +838,8 @@ namespace BORFinanceDatabase.Migrations
                     b.Property<string>("Status")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
                         .HasDefaultValue("Pending");
 
                     b.Property<int>("TenureMonths")
@@ -848,11 +856,81 @@ namespace BORFinanceDatabase.Migrations
                     b.HasIndex("LoanNumber")
                         .IsUnique();
 
+                    b.HasIndex("LoanTypeId");
+
                     b.HasIndex("MembershipId");
 
-                    b.HasIndex("Status");
-
                     b.ToTable("Loans", (string)null);
+                });
+
+            modelBuilder.Entity("BORFinanceDomain.Loans.LoanGuarantor", b =>
+                {
+                    b.Property<long>("LoanGuarantorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("LoanGuarantorId"));
+
+                    b.Property<string>("Address")
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<DateTime?>("ApprovedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<long?>("ApprovedBy")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime(6)")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<long?>("CreatedBy")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("EmployeeId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("GuarantorName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<bool>("IsApproved")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("tinyint(1)")
+                        .HasDefaultValue(false);
+
+                    b.Property<long>("LoanId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("MembershipId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("MobileNumber")
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("Relationship")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<long?>("UpdatedBy")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("LoanGuarantorId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("LoanId");
+
+                    b.HasIndex("MembershipId");
+
+                    b.ToTable("LoanGuarantors", (string)null);
                 });
 
             modelBuilder.Entity("BORFinanceDomain.Loans.LoanInstallment", b =>
@@ -862,6 +940,13 @@ namespace BORFinanceDatabase.Migrations
                         .HasColumnType("bigint");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("LoanInstallmentId"));
+
+                    b.Property<DateTime?>("ChequeDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ChequeNumber")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
@@ -892,6 +977,10 @@ namespace BORFinanceDatabase.Migrations
                     b.Property<DateTime?>("PaymentDate")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<string>("PaymentMode")
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
+
                     b.Property<decimal>("PrincipalAmount")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
@@ -899,8 +988,8 @@ namespace BORFinanceDatabase.Migrations
                     b.Property<string>("Status")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(30)
-                        .HasColumnType("varchar(30)")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
                         .HasDefaultValue("Pending");
 
                     b.HasKey("LoanInstallmentId");
@@ -911,6 +1000,61 @@ namespace BORFinanceDatabase.Migrations
                         .IsUnique();
 
                     b.ToTable("LoanInstallments", (string)null);
+                });
+
+            modelBuilder.Entity("BORFinanceDomain.Loans.LoanType", b =>
+                {
+                    b.Property<int>("LoanTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("LoanTypeId"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime(6)")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<long?>("CreatedBy")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<decimal?>("InterestRate")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("tinyint(1)")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("LoanTypeCode")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("LoanTypeName")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<decimal?>("MaximumLoanAmount")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<int?>("MaximumTenureMonths")
+                        .HasColumnType("int");
+
+                    b.HasKey("LoanTypeId");
+
+                    b.HasIndex("LoanTypeCode")
+                        .IsUnique();
+
+                    b.HasIndex("LoanTypeName")
+                        .IsUnique();
+
+                    b.ToTable("LoanTypes", (string)null);
                 });
 
             modelBuilder.Entity("BORFinanceDomain.Members.Membership", b =>
@@ -1099,11 +1243,44 @@ namespace BORFinanceDatabase.Migrations
 
             modelBuilder.Entity("BORFinanceDomain.Loans.Loan", b =>
                 {
+                    b.HasOne("BORFinanceDomain.Loans.LoanType", "LoanType")
+                        .WithMany("Loans")
+                        .HasForeignKey("LoanTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("BORFinanceDomain.Members.Membership", "Membership")
                         .WithMany("Loans")
                         .HasForeignKey("MembershipId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("LoanType");
+
+                    b.Navigation("Membership");
+                });
+
+            modelBuilder.Entity("BORFinanceDomain.Loans.LoanGuarantor", b =>
+                {
+                    b.HasOne("BORFinanceDomain.Entities.Employees.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("BORFinanceDomain.Loans.Loan", "Loan")
+                        .WithMany("Guarantors")
+                        .HasForeignKey("LoanId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("BORFinanceDomain.Members.Membership", "Membership")
+                        .WithMany()
+                        .HasForeignKey("MembershipId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("Loan");
 
                     b.Navigation("Membership");
                 });
@@ -1172,7 +1349,14 @@ namespace BORFinanceDatabase.Migrations
 
             modelBuilder.Entity("BORFinanceDomain.Loans.Loan", b =>
                 {
+                    b.Navigation("Guarantors");
+
                     b.Navigation("Installments");
+                });
+
+            modelBuilder.Entity("BORFinanceDomain.Loans.LoanType", b =>
+                {
+                    b.Navigation("Loans");
                 });
 
             modelBuilder.Entity("BORFinanceDomain.Members.Membership", b =>

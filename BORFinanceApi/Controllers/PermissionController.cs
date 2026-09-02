@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using BORFinanceBusiness;
+﻿using BORFinanceBusiness;
+using BORFinanceCommon.Models;
 using BORFinanceDTO;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -23,7 +24,15 @@ public class PermissionController : ControllerBase
         var result =
             await _permissionService.GetAllAsync();
 
-        return Ok(result);
+        if (result == null)
+            return NotFound("No Permission Types found.");
+
+        return Ok(new ApiResponse<object>
+        {
+            Success = true,
+            Message = "success.",
+            Data = result
+        });
     }
 
    
@@ -39,7 +48,12 @@ public class PermissionController : ControllerBase
             return NotFound(
                 "Permission not found.");
 
-        return Ok(result);
+        return Ok(new ApiResponse<object>
+        {
+            Success = true,
+            Message = "success.",
+            Data = result
+        });
     }
 
    
@@ -50,7 +64,16 @@ public class PermissionController : ControllerBase
             await _permissionService
                 .GetActiveAsync();
 
-        return Ok(result);
+        if (result == null)
+            return NotFound(
+                "No Active Permission not found.");
+
+        return Ok(new ApiResponse<object>
+        {
+            Success = true,
+            Message = "success.",
+            Data = result
+        });
     }
 
     
@@ -69,8 +92,12 @@ public class PermissionController : ControllerBase
             return BadRequest(
                 "Unable to create permission.");
 
-        return Ok(
-            "Permission created successfully.");
+        return Ok(new ApiResponse<object>
+        {
+            Success = true,
+            Message = "Permission created successfully.",
+            Data = result
+        });
     }
 
    
@@ -94,11 +121,15 @@ public class PermissionController : ControllerBase
             return BadRequest(
                 "Unable to update permission.");
 
-        return Ok(
-            "Permission updated successfully.");
+        return Ok(new ApiResponse<object>
+        {
+            Success = true,
+            Message = "Permission updated successfully.",
+            Data = result
+        });
+      
     }
 
-    
     [HttpDelete("DeletePermissionType")]
     public async Task<IActionResult> DeletePermissionType(
         int id)
@@ -111,7 +142,12 @@ public class PermissionController : ControllerBase
             return BadRequest(
                 "Unable to delete permission.");
 
-        return Ok(
-            "Permission deleted successfully.");
+        return Ok(new ApiResponse<object>
+        {
+            Success = true,
+            Message = "Permission deleted successfully.",
+            Data = result
+        });
+     
     }
 }

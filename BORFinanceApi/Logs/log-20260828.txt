@@ -1,0 +1,2 @@
+[2026-08-28 11:41:29 INF]  BORFinance ERP API Started Successfully
+[2026-08-28 11:41:29 WRN] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware The WebRootPath was not found: E:\BOR_Finance_2026\Board_Of_Revenue_Finance\BORFinanceApi\wwwroot. Static files may be unavailable.

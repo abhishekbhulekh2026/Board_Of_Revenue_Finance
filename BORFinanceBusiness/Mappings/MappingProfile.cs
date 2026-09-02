@@ -42,6 +42,9 @@ namespace BORFinanceBusiness.Mappings
             CreateMap<Designation, DesignationDto>().ReverseMap();
             CreateMap<Membership, MembershipDto>().ReverseMap();
             CreateMap<Loan, LoanDto>().ReverseMap();
+            CreateMap<LoanInstallment, LoanInstallmentDto>().ReverseMap();
+            CreateMap<LoanType, LoanTypeDto>().ReverseMap();
+            CreateMap<LoanGuarantor, LoanGuarantorDto>().ReverseMap();
         }
     }
 }

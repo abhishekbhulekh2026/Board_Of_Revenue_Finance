@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BORFinanceBusiness;
+using BORFinanceCommon.Models;
+using BORFinanceDTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using BORFinanceBusiness;
-using BORFinanceDTO;
 
 namespace BORFinanceApi.Controllers
 {
@@ -31,7 +32,12 @@ namespace BORFinanceApi.Controllers
             if (result == null)
                 return NotFound("User role assignment not found.");
 
-            return Ok(result);
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = result,
+            });
         }
 
 
@@ -46,7 +52,12 @@ namespace BORFinanceApi.Controllers
             if (result == null)
                 return NotFound("User role assignment not found.");
 
-            return Ok(result);
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = result,
+            });
         }
 
 
@@ -57,7 +68,15 @@ namespace BORFinanceApi.Controllers
             var result = await _userRoleService
                 .GetByUserIdAsync(userId);
 
-            return Ok(result);
+            if (result == null)
+                return NotFound("User role assignment not found.");
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = result,
+            });
         }
 
        
@@ -68,7 +87,15 @@ namespace BORFinanceApi.Controllers
             var result = await _userRoleService
                 .GetByRoleIdAsync(roleId);
 
-            return Ok(result);
+            if (result == null)
+                return NotFound("User role assignment not found.");
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = result,
+            });
         }
 
        
@@ -86,8 +113,12 @@ namespace BORFinanceApi.Controllers
                 return BadRequest(
                     "Unable to assign role to user.");
 
-            return Ok(
-                "Role assigned to user successfully.");
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "Role assigned to user successfully.",
+                Data = result,
+            });
         }
 
         
@@ -115,8 +146,13 @@ namespace BORFinanceApi.Controllers
                 return BadRequest(
                     "Unable to update user role.");
 
-            return Ok(
-                "User role updated successfully.");
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "User role updated successfully.",
+                Data = result,
+            });
+
         }
 
        
@@ -132,10 +168,13 @@ namespace BORFinanceApi.Controllers
                 return BadRequest(
                     "Unable to remove user role.");
 
-            return Ok(
-                "User role removed successfully.");
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "User role removed successfully.",
+                Data = result,
+            });
         }
-
     }
 }
 

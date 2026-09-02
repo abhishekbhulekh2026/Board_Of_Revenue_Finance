@@ -19,8 +19,7 @@ namespace BORFinanceDTO
         public string LoanNumber { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(100)]
-        public string LoanType { get; set; } = string.Empty;
+        public int LoanTypeId { get; set; }
 
         [Range(0.01, double.MaxValue)]
         public decimal RequestedAmount { get; set; }
@@ -47,5 +46,7 @@ namespace BORFinanceDTO
 
         [MaxLength(1000)]
         public string? Remarks { get; set; }
+
+        public string? BankTransactionReference { get; set; }
     }
 }

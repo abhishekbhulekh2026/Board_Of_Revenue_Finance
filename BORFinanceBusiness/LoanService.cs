@@ -4,9 +4,10 @@ using BORFinanceCommon.Exceptions;
 using BORFinanceDomain.Loans;
 using BORFinanceDTO;
 using BORFinanceRepository.Interfaces;
+using Microsoft.Extensions.Logging;
 using SchoolDatabase.Context;
 
-namespace BORFinanceApi.Controllers
+namespace BORFinanceBusiness
 {
 
     public interface ILoanService
@@ -182,8 +183,8 @@ namespace BORFinanceApi.Controllers
             loan.LoanNumber =
                 dto.LoanNumber;
 
-            loan.LoanType =
-                dto.LoanType;
+            loan.LoanTypeId =
+                dto.LoanTypeId;
 
             loan.RequestedAmount =
                 dto.RequestedAmount;

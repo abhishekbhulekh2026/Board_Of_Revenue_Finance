@@ -1,4 +1,6 @@
-﻿using BORFinanceDTO;
+﻿using BORFinanceBusiness;
+using BORFinanceCommon.Models;
+using BORFinanceDTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,17 +20,25 @@ namespace BORFinanceApi.Controllers
             _loanService = loanService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        [HttpGet("GetAllLoans")]
+        public async Task<IActionResult> GetAllLoans()
         {
             var result =
                 await _loanService.GetAllAsync();
 
-            return Ok(result);
+            if(result ==null)
+                return NotFound("No loans found.");
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = result
+            });
         }
 
-        [HttpGet("{loanId:long}")]
-        public async Task<IActionResult> GetById(
+        [HttpGet("GetLoanDetailsById")]
+        public async Task<IActionResult> GetLoanDetailsById(
             long loanId)
         {
             var result =
@@ -36,13 +46,18 @@ namespace BORFinanceApi.Controllers
                     loanId);
 
             if (result == null)
-                return NotFound();
+                return NotFound("No loans found.");
 
-            return Ok(result);
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = result
+            });
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(
+        [HttpPost("CreateLoanApplication")]
+        public async Task<IActionResult> CreateLoanApplication(
             [FromBody] LoanDto dto)
         {
             if (!ModelState.IsValid)
@@ -55,14 +70,17 @@ namespace BORFinanceApi.Controllers
                 return BadRequest(
                     "Loan could not be created.");
 
-            return Ok(new
+            return Ok(new ApiResponse<object>
             {
-                message = "Loan created successfully."
+                Success = true,
+                Message = "Loan created successfully.",
+                Data = result
             });
+           
         }
 
-        [HttpPut("{loanId:long}")]
-        public async Task<IActionResult> Update(
+        [HttpPut("UpdateLoanApplication")]
+        public async Task<IActionResult> UpdateLoanApplication(
             long loanId,
             [FromBody] LoanDto dto)
         {
@@ -78,14 +96,16 @@ namespace BORFinanceApi.Controllers
                 return BadRequest(
                     "Loan could not be updated.");
 
-            return Ok(new
+            return Ok(new ApiResponse<object>
             {
-                message = "Loan updated successfully."
+                Success = true,
+                Message = "Loan updated successfully.",
+                Data = result
             });
         }
 
-        [HttpDelete("{loanId:long}")]
-        public async Task<IActionResult> Delete(
+        [HttpDelete("DeleteLoanApplication")]
+        public async Task<IActionResult> DeleteLoanApplication(
             long loanId)
         {
             var result =
@@ -96,10 +116,13 @@ namespace BORFinanceApi.Controllers
                 return BadRequest(
                     "Loan could not be deleted.");
 
-            return Ok(new
+            return Ok(new ApiResponse<object>
             {
-                message = "Loan deleted successfully."
+                Success = true,
+                Message = "Loan deleted successfully.",
+                Data = result
             });
+           
         }
     }
 }

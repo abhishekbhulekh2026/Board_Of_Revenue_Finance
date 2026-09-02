@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BORFinanceDatabase.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -66,6 +66,31 @@ namespace BORFinanceDatabase.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Designations", x => x.DesignationId);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "LoanTypes",
+                columns: table => new
+                {
+                    LoanTypeId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    LoanTypeCode = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    LoanTypeName = table.Column<string>(type: "varchar(150)", maxLength: 150, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Description = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    InterestRate = table.Column<decimal>(type: "decimal(65,30)", nullable: true),
+                    MaximumTenureMonths = table.Column<int>(type: "int", nullable: true),
+                    MaximumLoanAmount = table.Column<decimal>(type: "decimal(65,30)", nullable: true),
+                    IsActive = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    CreatedBy = table.Column<long>(type: "bigint", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LoanTypes", x => x.LoanTypeId);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -397,8 +422,8 @@ namespace BORFinanceDatabase.Migrations
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
                     CreatedBy = table.Column<long>(type: "bigint", nullable: true),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    UpdatedBy = table.Column<long>(type: "bigint", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: false)
+                    IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: false),
+                    UpdatedBy = table.Column<long>(type: "bigint", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -461,23 +486,29 @@ namespace BORFinanceDatabase.Migrations
                     MembershipId = table.Column<long>(type: "bigint", nullable: false),
                     LoanNumber = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    LoanType = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    LoanTypeId = table.Column<int>(type: "int", nullable: false),
                     RequestedAmount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    ApplicationDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Purpose = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Remarks = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     ApprovedAmount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
-                    InterestRate = table.Column<decimal>(type: "decimal(8,4)", precision: 8, scale: 4, nullable: false),
+                    InterestRate = table.Column<decimal>(type: "decimal(5,2)", precision: 5, scale: 2, nullable: false),
                     TenureMonths = table.Column<int>(type: "int", nullable: false),
-                    ApplicationDate = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
                     ApprovalDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    DisbursementDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    Status = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false, defaultValue: "Pending")
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Purpose = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Remarks = table.Column<string>(type: "varchar(1000)", maxLength: 1000, nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
                     ApprovedBy = table.Column<long>(type: "bigint", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    DisbursementDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    PaidAmount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: true),
+                    PaymentReference = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    BankTransactionReference = table.Column<string>(type: "varchar(150)", maxLength: 150, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    PaymentStatus = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Status = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false, defaultValue: "Pending")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CreatedBy = table.Column<long>(type: "bigint", nullable: true),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     UpdatedBy = table.Column<long>(type: "bigint", nullable: true)
@@ -486,7 +517,62 @@ namespace BORFinanceDatabase.Migrations
                 {
                     table.PrimaryKey("PK_Loans", x => x.LoanId);
                     table.ForeignKey(
+                        name: "FK_Loans_LoanTypes_LoanTypeId",
+                        column: x => x.LoanTypeId,
+                        principalTable: "LoanTypes",
+                        principalColumn: "LoanTypeId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Loans_Memberships_MembershipId",
+                        column: x => x.MembershipId,
+                        principalTable: "Memberships",
+                        principalColumn: "MembershipId",
+                        onDelete: ReferentialAction.Restrict);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "LoanGuarantors",
+                columns: table => new
+                {
+                    LoanGuarantorId = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    LoanId = table.Column<long>(type: "bigint", nullable: false),
+                    MembershipId = table.Column<long>(type: "bigint", nullable: true),
+                    EmployeeId = table.Column<long>(type: "bigint", nullable: true),
+                    GuarantorName = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Relationship = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    MobileNumber = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Address = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IsApproved = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: false),
+                    ApprovedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    ApprovedBy = table.Column<long>(type: "bigint", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    CreatedBy = table.Column<long>(type: "bigint", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    UpdatedBy = table.Column<long>(type: "bigint", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LoanGuarantors", x => x.LoanGuarantorId);
+                    table.ForeignKey(
+                        name: "FK_LoanGuarantors_Employees_EmployeeId",
+                        column: x => x.EmployeeId,
+                        principalTable: "Employees",
+                        principalColumn: "EmployeeId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_LoanGuarantors_Loans_LoanId",
+                        column: x => x.LoanId,
+                        principalTable: "Loans",
+                        principalColumn: "LoanId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_LoanGuarantors_Memberships_MembershipId",
                         column: x => x.MembershipId,
                         principalTable: "Memberships",
                         principalColumn: "MembershipId",
@@ -508,8 +594,13 @@ namespace BORFinanceDatabase.Migrations
                     InstallmentAmount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     PaidAmount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false, defaultValue: 0m),
                     PaymentDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    Status = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false, defaultValue: "Pending")
+                    Status = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false, defaultValue: "Pending")
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    PaymentMode = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ChequeNumber = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ChequeDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
@@ -590,6 +681,21 @@ namespace BORFinanceDatabase.Migrations
                 column: "Status");
 
             migrationBuilder.CreateIndex(
+                name: "IX_LoanGuarantors_EmployeeId",
+                table: "LoanGuarantors",
+                column: "EmployeeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LoanGuarantors_LoanId",
+                table: "LoanGuarantors",
+                column: "LoanId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LoanGuarantors_MembershipId",
+                table: "LoanGuarantors",
+                column: "MembershipId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_LoanInstallments_DueDate",
                 table: "LoanInstallments",
                 column: "DueDate");
@@ -607,14 +713,26 @@ namespace BORFinanceDatabase.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Loans_LoanTypeId",
+                table: "Loans",
+                column: "LoanTypeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Loans_MembershipId",
                 table: "Loans",
                 column: "MembershipId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Loans_Status",
-                table: "Loans",
-                column: "Status");
+                name: "IX_LoanTypes_LoanTypeCode",
+                table: "LoanTypes",
+                column: "LoanTypeCode",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LoanTypes_LoanTypeName",
+                table: "LoanTypes",
+                column: "LoanTypeName",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_LoginHistory_LoginDate",
@@ -706,6 +824,9 @@ namespace BORFinanceDatabase.Migrations
                 name: "FixedDeposits");
 
             migrationBuilder.DropTable(
+                name: "LoanGuarantors");
+
+            migrationBuilder.DropTable(
                 name: "LoanInstallments");
 
             migrationBuilder.DropTable(
@@ -731,6 +852,9 @@ namespace BORFinanceDatabase.Migrations
 
             migrationBuilder.DropTable(
                 name: "MasterRole");
+
+            migrationBuilder.DropTable(
+                name: "LoanTypes");
 
             migrationBuilder.DropTable(
                 name: "Memberships");

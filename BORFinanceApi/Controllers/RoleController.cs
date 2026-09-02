@@ -32,7 +32,7 @@ namespace BORFinanceApi.Controllers
                 Success = true,
                 Message = "success.",
                 Data = role,
-                StatusCode = (int)HttpStatusCode.OK
+                
             });
         }
 

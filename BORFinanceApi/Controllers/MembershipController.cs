@@ -1,4 +1,5 @@
 ﻿using BORFinanceBusiness;
+using BORFinanceCommon.Models;
 using BORFinanceDTO;
 using BORFinanceRepository.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -26,7 +27,16 @@ namespace BORFinanceApi.Controllers
             var result =
                 await _membershipService.GetAllAsync();
 
-            return Ok(result);
+
+            if (result == null)
+                return NotFound("No Member found.");
+
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = result
+            });
         }
 
         [HttpGet("GetMemberById")]
@@ -38,9 +48,14 @@ namespace BORFinanceApi.Controllers
                     membershipId);
 
             if (result == null)
-                return NotFound();
+                return NotFound("No Member found.");
 
-            return Ok(result);
+            return Ok(new ApiResponse<object>
+            {
+                Success = true,
+                Message = "success.",
+                Data = result
+            });
         }
 
         [HttpPost("CreateMember")]
@@ -57,10 +72,13 @@ namespace BORFinanceApi.Controllers
                 return BadRequest(
                     "Membership could not be created.");
 
-            return Ok(new
+            return Ok(new ApiResponse<object>
             {
-                message = "Membership created successfully."
+                Success = true,
+                Message = "Membership created successfully.",
+                Data = result
             });
+        
         }
 
         [HttpPut("UpdateMember")]
@@ -80,9 +98,11 @@ namespace BORFinanceApi.Controllers
                 return BadRequest(
                     "Membership could not be updated.");
 
-            return Ok(new
+            return Ok(new ApiResponse<object>
             {
-                message = "Membership updated successfully."
+                Success = true,
+                Message = "Membership updated successfully.",
+                Data = result
             });
         }
 
@@ -98,10 +118,13 @@ namespace BORFinanceApi.Controllers
                 return BadRequest(
                     "Membership could not be deleted.");
 
-            return Ok(new
+            return Ok(new ApiResponse<object>
             {
-                message = "Membership deleted successfully."
+                Success = true,
+                Message = "Membership deleted successfully.",
+                Data = result
             });
+
         }
     }
 }
